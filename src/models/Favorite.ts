@@ -1,17 +1,40 @@
-// import { ObjectId } from "mongodb";
+import { ObjectId } from "mongodb";
 
-// interface Images {
-//   url: string;
-// }
+interface Start {
+  localDate: string;
+}
 
-// interface Event {
-//   id: string;
-//   title: string;
-//   images: Images;
-// }
+interface Date {
+  start: Start;
+}
 
-// export default interface Favorite {
-//   _id: ObjectId;
-//   event: Event;
-//   userId?: ObjectId;
-// }
+interface State {
+  stateCode: string;
+}
+
+interface City {
+  name: string;
+}
+
+interface Venue {
+  city: City;
+  state: State;
+}
+
+interface Image {
+  url: string;
+}
+
+interface Event {
+  name: string;
+  id: string;
+  images: Image[];
+  _embedded: Venue[];
+  dates: Date;
+}
+
+export default interface Favorite {
+  _id: ObjectId;
+  event: Event;
+  userId?: ObjectId;
+}
